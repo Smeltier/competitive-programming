@@ -1,22 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-    int N; cin >> N;
-    vector<int> Vet(N);
-        int Cont = 0;
-        for(int i = 0; i < N; i++)
-            scanf("%d", &Vet[i]);
-        for(int i = 0; i < N - 1; i++){
-            for(int j = 0; j < N - i - 1; j++){
-                if(Vet[j] > Vet[j+1]){
-                    swap(Vet[j], Vet[j+1]);
-                    Cont++;
-                }
-            }
+int Insertion_Sort(int Vector[], int N){
+    int Swaps = 0;
+    for (int i = 1; i < N; i++)
+    {
+        int Comp = Vector[i];
+        int j = i - 1;
+        while (j >= 0 && Vector[j] > Comp)
+        {
+            Vector[j+1] = Vector[j];
+            j = j - 1;
+            Swaps++;
         }
-    printf("%d\n", Cont);
-    return 0;
+        Vector[j+1] = Comp;
+    }
+    return Swaps;
 }
 
-// Entender o problema.
+int main(){
+    int N; scanf("%d", &N);
+    int Bal[N];
+    for (int i = 0; i < N; i++)
+    {
+        scanf("%d", &Bal[i]);
+    }
+    printf("%d\n", Insertion_Sort(Bal,N));
+    return 0;
+}
