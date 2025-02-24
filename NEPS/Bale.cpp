@@ -22,9 +22,7 @@ int main(){
     int N; scanf("%d", &N);
     int Bal[N];
     for (int i = 0; i < N; i++)
-    {
         scanf("%d", &Bal[i]);
-    }
     printf("%d\n", Insertion_Sort(Bal,N));
     return 0;
 }
