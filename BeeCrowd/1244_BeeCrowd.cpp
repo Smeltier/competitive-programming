@@ -36,8 +36,8 @@ int32_t main(){
 			v.pb(word);
 
 		stable_sort(v.begin(), v.end(), [](string a, string b) {
-            return a.size() > b.size();
-        });
+            		return a.size() > b.size();
+        	});
 
 		for (int i = 0; i < (int)v.size(); ++i){
 			cout << v[i];
