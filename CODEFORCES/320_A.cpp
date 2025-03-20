@@ -37,9 +37,6 @@ int main(){
         } 
     }
 
-    if(test)
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
+    cout << (test ? "YES" : "NO") << endl;
 
 }
