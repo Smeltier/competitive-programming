@@ -46,9 +46,6 @@ int main(){
     if(aux != m)
         test = false;
 
-    if(test)
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
+    cout << (test ? "YES" : "NO") << endl;
 
 }
