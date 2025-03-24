@@ -14,5 +14,5 @@ int main(){
             N /= 2;
             printf("%lld ", N);
         }
-    }
     return 0;
+    }
