@@ -1,3 +1,6 @@
+//    Missing Number - Cses 1083 (by Smeltier)
+//    https://cses.fi/problemset/task/1083
+
 // #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
@@ -14,3 +17,4 @@ int main(){
     }
     printf("%d\n", soma-comp);
     return 0;
+}

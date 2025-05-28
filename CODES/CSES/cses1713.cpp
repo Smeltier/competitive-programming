@@ -1,3 +1,6 @@
+//    Counting Divisors - Cses 1713 (by Smeltier)
+//    https://cses.fi/problemset/task/1713
+
 #include <bits/stdc++.h>
 using namespace std;
 

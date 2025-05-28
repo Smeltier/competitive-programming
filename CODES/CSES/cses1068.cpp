@@ -1,3 +1,6 @@
+//    Weird Algorithm - Cses 1068 (by Smeltier)
+//    https://cses.fi/problemset/task/1068
+
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -16,3 +19,4 @@ int main(){
         }
     return 0;
     }
+}

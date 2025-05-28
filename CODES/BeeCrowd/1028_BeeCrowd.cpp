@@ -1,3 +1,6 @@
+//    Figurinhas - BeeCrowd 1028 (by Smeltier)
+//    https://judge.beecrowd.com/pt/problems/view/1028
+
 #include <bits/stdc++.h>
 
 using namespace std;

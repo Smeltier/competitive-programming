@@ -1,3 +1,6 @@
+//    Static Range Sum Queries - Cses 1646 (by Smeltier)
+//    https://cses.fi/problemset/task/1646
+
 #include <bits/stdc++.h>
 using namespace std;
 

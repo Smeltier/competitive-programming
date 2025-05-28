@@ -1,3 +1,6 @@
+//    Idade em Dias - BeeCrowd 1020 (by Smeltier)
+//    https://judge.beecrowd.com/pt/problems/view/1020
+
 #include <bits/stdc++.h>
 
 using namespace std;

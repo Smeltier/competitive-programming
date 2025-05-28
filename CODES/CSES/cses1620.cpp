@@ -1,3 +1,6 @@
+//    Factory Machines - Cses 1620 (by Smeltier)
+//    https://cses.fi/problemset/task/1620
+
 #include <bits/stdc++.h>
 using namespace std;
 
