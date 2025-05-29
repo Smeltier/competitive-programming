@@ -1,4 +1,4 @@
-//    Chvaes - Neps 56 (by Smeltier)
+//    Chaves - Neps 56 (by Smeltier)
 //    https://neps.academy/br/exercise/56
 
 #include <bits/stdc++.h>
