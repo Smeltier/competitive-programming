@@ -1,0 +1,27 @@
+{
+    "code-runner.runInTerminal": true,
+    "explorer.confirmDragAndDrop": false,
+    "[python]": {
+        
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.formatOnType": true,
+        "editor.wordBasedSuggestions": "off"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.renderLineHighlight": "all",
+    "workbench.editor.labelFormat": "short",
+    "explorer.compactFolders": false,
+    "editor.minimap.enabled": false,
+    "terminal.explorerKind": "external",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "liveServer.settings.donotVerifyTags": true,
+    "workbench.panel.showLabels": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorTheme": "Vesper",
+    "explorer.confirmDelete": false,
+    "files.autoSave": "afterDelay",
+    "workbench.sideBar.location": "right",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "git.suggestSmartCommit": false,
+    "workbench.startupEditor": "none",
+}

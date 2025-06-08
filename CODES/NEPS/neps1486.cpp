@@ -1,29 +1,39 @@
-//    Zero Para Cancelar - Neps 1486 (by Smeltier)
-//    https://neps.academy/br/exercise/1486
-
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-    
-    int N, x, sum = 0;
-    stack<int> num;
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define all(x) x.begin(),x.end()
+#define srt(x) sort(all(x))
+#define fast_io ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define vi vector<int>
+#define vll vector<ll>
+#define endl "\n"
 
-    scanf("%d", &N);
-    for (int i = 0; i < N; i++){
-        scanf("%d", &x);
-        if(x != 0)
-            num.push(x);
-        else
-            num.pop();
+typedef long long ll;
+typedef long double ld;
+
+int main(){ fast_io;
+
+    int n;
+    cin >> n;
+
+
+    stack<int> nb;
+    for(int i = 0; i < n; i++){
+        int op; cin >> op;
+        if(!op) nb.pop();
+        else nb.push(op);
     }
 
-    while(!num.empty()){
-        sum += num.top();
-        num.pop();
+    int sum = 0;
+    while(!nb.empty()){
+        sum += nb.top();
+        nb.pop();
     }
 
-    printf("%d\n", sum);
+    cout << sum << endl;
 
-    return 0;
 }
