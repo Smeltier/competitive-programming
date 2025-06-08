@@ -35,6 +35,6 @@ void search(string str){
 
 int main() {
     cin >> n;
-    string str(n, '0'); // 000
+    string str(n, '0');
     search(str);
 }
