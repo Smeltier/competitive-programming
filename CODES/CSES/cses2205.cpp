@@ -33,7 +33,7 @@ void search(string str){
     }
 }
 
-int main() {
+int main() { fast_io;
     cin >> n;
     string str(n, '0');
     search(str);
