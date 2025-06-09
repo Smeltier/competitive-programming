@@ -2,18 +2,24 @@
 using namespace std;
 
 #define pb push_back
+#define max(a,b) (a<b?b:a)
+#define abs(a) (a<0?(-a):a)
+#define present(c, a) (c.find(a) != c.end())
 #define mp make_pair
 #define F first
 #define S second
 #define all(x) x.begin(),x.end()
 #define srt(x) sort(all(x))
 #define fast_io ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-#define vi vector<int>
-#define vll vector<ll>
 #define endl "\n"
 
 typedef long long ll;
+typedef unsigned long long ull;
 typedef long double ld;
+typedef unsigned int ui;
+
+const int maxn = 1e5+10;
+const int INF = 1e9 + 10;
 
 int n;
 set<string> flag;
@@ -26,10 +32,10 @@ void search(string str){
     flag.insert(str);
 
     for (int i = n - 1; i >= 0; --i){
-        string aux = str;
-        aux[i] = (aux[i] == '0' ? '1' : '0' );
-        if (flag.find(aux) == flag.end())
-            search(aux);
+        str[i] = (str[i] == '0' ? '1' : '0' );
+        if (flag.find(str) == flag.end())
+            search(str);
+        str[i] = (str[i] == '0' ? '1' : '0' );
     }
 }
 
