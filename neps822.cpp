@@ -21,6 +21,5 @@ int main(){ fast_io;
 
     int d; cin >> d;
 
-    d -= 12;
 
 }
