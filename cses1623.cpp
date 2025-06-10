@@ -22,16 +22,14 @@ const int maxn = 1e5+10;
 const ll INF = 1e18 + 10;
 
 ll n, tt = 0, ans = INF;
-vector<ll> vet, per;
+vector<ll> vet;
 
 void search(ll valor, ll sum){
     if(valor == n){
         ans = min(ans, abs(abs(tt - sum) - sum));
         return;
     }
-    per.pb(vet[valor]);
     search(valor + 1, sum + vet[valor]);
-    per.pop_back();
     search(valor + 1, sum);
 }
 
