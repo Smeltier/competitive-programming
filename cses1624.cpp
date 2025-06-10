@@ -30,7 +30,7 @@ int main(){ fast_io;
 
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++)
-            cout << mt[i][j] << " ";
+            cout << "\t" <<  mt[i][j] << " ";
         cout << endl;
     }
         
