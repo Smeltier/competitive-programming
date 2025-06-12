@@ -25,6 +25,12 @@ const int INF = 1e9 + 10;
 
 int main(){ fast_io
 
-    
-
+    int t; cin >> t;
+    while(t--){
+        int a, b; cin >> a >> b;
+        if((min(a,b) * 2 >= max(a,b)) && ((a+b) % 3 == 0))
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
+    }
 }
