@@ -22,7 +22,6 @@ vector<bool> col(8, false);
 vector<bool> diag1(15, false), diag2(15, false);
 vector<vector<bool>> mt(n, vector<bool> (n, true));
 
-
 void search(int y){
     if(y == 8){
         ans++;
