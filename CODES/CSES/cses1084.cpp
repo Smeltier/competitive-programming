@@ -1,3 +1,6 @@
+//    Apartments - Cses 1084 (by Smeltier)
+//    https://cses.fi/problemset/task/1084/
+
 #include <bits/stdc++.h>
 using namespace std;
 

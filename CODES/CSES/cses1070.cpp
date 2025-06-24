@@ -1,3 +1,6 @@
+//    Permutations - Cses 1070 (by Smeltier)
+//    https://cses.fi/problemset/task/1070/
+
 #include <bits/stdc++.h>
 using namespace std;
 

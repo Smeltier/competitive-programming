@@ -1,3 +1,6 @@
+//    Chessboard and Queens - Cses 1624 (by Smeltier)
+//    https://cses.fi/problemset/task/1624/
+
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,3 +1,6 @@
+//    Palindrome Reorder - Cses 1755 (by Smeltier)
+//    https://cses.fi/problemset/task/1755/
+
 #include <bits/stdc++.h>
 using namespace std;
 

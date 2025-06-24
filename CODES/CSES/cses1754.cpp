@@ -1,3 +1,6 @@
+//    Coin Piles - Cses 1754 (by Smeltier)
+//    https://cses.fi/problemset/task/1754/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,8 +23,6 @@ typedef unsigned int ui;
 
 const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
-
-
 
 int main(){ fast_io
 

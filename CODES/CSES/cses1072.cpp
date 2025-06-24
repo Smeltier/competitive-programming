@@ -1,3 +1,6 @@
+//    Two Knights - Cses 1072 (by Smeltier)
+//    https://cses.fi/problemset/task/1072/
+
 #include <bits/stdc++.h>
 using namespace std;
 

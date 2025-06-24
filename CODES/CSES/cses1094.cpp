@@ -1,3 +1,6 @@
+//    Increasing Array - Cses 1094 (by Smeltier)
+//    https://cses.fi/problemset/task/1094/
+
 #include <bits/stdc++.h>
 using namespace std;
 
