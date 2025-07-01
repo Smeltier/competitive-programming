@@ -2,8 +2,6 @@
 using namespace std;
 
 #define pb push_back
-#define max(a,b) (a<b?b:a)
-#define abs(a) (a<0?(-a):a)
 #define present(c, a) (c.find(a) != c.end())
 #define mp make_pair
 #define F first
@@ -25,37 +23,39 @@ int sz;
 string str;
 map<char, int> pam;
 
-bool cmp(int tam){
-    for(auto it : pam)
-        if(it.S > (tam + 1) / 2)
-            return false;
+bool cmp(int aux){
+    for(auto p : pam)
+        if(p.S > (aux + 1) / 2) return false;
     return true;
 }
 
 string solve(){
-    map<char, int> pam;
-    for(int i = 0; i < sz; ++i)
-        pam[str[i]]++;
+    for(char s : str) pam[s]++;
 
     if(!cmp(sz)) return "-1";
 
     string ans = "";
-    char ant = 0;
+    char prev = 0;
 
     for(int i = 0; i < sz; ++i){
         bool flag = false;
-        for(auto &[ch, qtde] : pam){
-            if(ch == ant) continue;
 
-            qtde--;
-            if(cmp(sz - i + 1)){
-                ans += ch;
-                ant = ch;
+        for(auto ite = pam.begin(); ite != pam.end(); ++ite){
+            char c = ite->F;
+            int &f = ite->S;
+
+            if(!f || c == prev) continue;
+
+            f--;
+            if(cmp(sz - i - 1)){
+                ans += c;
+                prev = c;
                 flag = true;
-                if(!qtde) pam.erase(ch);
+
+                if(!f) pam.erase(c);
                 break;
             }
-            else qtde++;
+            else f++;
         }
 
         if(!flag) return "-1";
@@ -66,8 +66,6 @@ string solve(){
 
 int main(){ fast_io
     cin >> str;
-
     sz = (int) str.size();
-
     cout << solve() << endl;
 }

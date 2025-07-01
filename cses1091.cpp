@@ -2,8 +2,6 @@
 using namespace std;
 
 #define pb push_back
-#define max(a,b) (a<b?b:a)
-#define abs(a) (a<0?(-a):a)
 #define present(c, a) (c.find(a) != c.end())
 #define mp make_pair
 #define F first
