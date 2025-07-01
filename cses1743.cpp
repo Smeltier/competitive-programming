@@ -55,8 +55,6 @@ string solve(){
             right = true;
             r++;
         } 
-
-        
     }
 
     return ans;
