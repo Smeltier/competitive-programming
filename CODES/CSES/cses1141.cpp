@@ -19,21 +19,27 @@ typedef unsigned int ui;
 const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
 
+
+
 int main(){ fast_io
     int n; cin >> n;
 
-    vector<pair<int, int>> cust;
-    for(int i = 0; i < n; i++){
-        int start, end; cin >> start >> end;
-        cust.pb({start, 1});
-        cust.pb({end, -1});
-    }
-    srt(cust);
+    vector<int> vet(n);
+    for(int i = 0; i < n; i++)
+        cin >> vet[i];
 
-    int ans = 0, cnt = 0;
-    for(auto it : cust){
-        cnt += it.S;
-        ans = max(ans, cnt);
+    map<int, int> pam;
+
+    int ans = 0;
+    for(int l = 0, r = 0, cnt = 0; l < n; ++l){
+        while(r < n && pam[vet[r]] == 0){
+            cnt++;
+            pam[vet[r]]++;
+            ans = max(ans, r - l);
+            r++;
+        }
+        ans = max(ans, r - l);
+        pam[vet[l]]--;
     }
 
     cout << ans << endl;

@@ -19,22 +19,30 @@ typedef unsigned int ui;
 const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
 
+int n;
+vector<int> vet;
+set<int> sub;
+set<set<int>> tes;
+
+void search(int i){
+    if(i == (int) vet.size()){
+        tes.insert(sub);
+        return;
+    }
+    search(i + 1);
+    sub.insert(vet[i]);
+    search(i + 1);
+    sub.erase(vet[i]);
+}
+
 int main(){ fast_io
-    int n; cin >> n;
+    cin >> n;
 
-    vector<pair<int, int>> cust;
-    for(int i = 0; i < n; i++){
-        int start, end; cin >> start >> end;
-        cust.pb({start, 1});
-        cust.pb({end, -1});
-    }
-    srt(cust);
+    vet.resize(n);
+    for(int i = 0; i < n; ++i)
+        cin >> vet[i];
 
-    int ans = 0, cnt = 0;
-    for(auto it : cust){
-        cnt += it.S;
-        ans = max(ans, cnt);
-    }
+    search(0);
 
-    cout << ans << endl;
+    cout << (int) tes.size() << endl;
 }

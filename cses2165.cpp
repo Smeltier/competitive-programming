@@ -19,22 +19,18 @@ typedef unsigned int ui;
 const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
 
+void solve(int f, int t, int d){
+    if(d == 1){
+        cout << f << " " << t << endl;
+        return;
+    }
+    solve(f, 6 - f - t, d - 1);
+    cout << f << " " << t << endl;
+    solve(6 - f - t, t, d - 1);
+}
+
 int main(){ fast_io
     int n; cin >> n;
-
-    vector<pair<int, int>> cust;
-    for(int i = 0; i < n; i++){
-        int start, end; cin >> start >> end;
-        cust.pb({start, 1});
-        cust.pb({end, -1});
-    }
-    srt(cust);
-
-    int ans = 0, cnt = 0;
-    for(auto it : cust){
-        cnt += it.S;
-        ans = max(ans, cnt);
-    }
-
-    cout << ans << endl;
+    cout << (1 << n) - 1 << endl;
+    solve(1, 3, n);
 }
