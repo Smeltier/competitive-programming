@@ -2,8 +2,6 @@
 using namespace std;
 
 #define pb push_back
-#define max(a,b) (a<b?b:a)
-#define abs(a) (a<0?(-a):a)
 #define present(c, a) (c.find(a) != c.end())
 #define mp make_pair
 #define F first
@@ -18,14 +16,19 @@ typedef unsigned long long ull;
 typedef long double ld;
 typedef unsigned int ui;
 
-const int maxn = 1e5+10;
-const int INF = 1e9 + 10;
-
-int n;
-vector<int> vet;
-
 int main(){ fast_io
+    int n;
     cin >> n;
 
-    
+    int mt[100][100];
+
+    for(int i = 0; i < n; ++i)
+        for(int j = 0; j < n; ++j)
+            mt[i][j] = (i + j) % n;
+
+    for(int i = 0; i < n; ++i){
+        for(int j = 0; j < n; ++j)
+            cout << mt[i][j] << " ";
+        cout << endl;
+    }
 }

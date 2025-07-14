@@ -2,8 +2,6 @@
 using namespace std;
 
 #define pb push_back
-#define max(a,b) (a<b?b:a)
-#define abs(a) (a<0?(-a):a)
 #define present(c, a) (c.find(a) != c.end())
 #define mp make_pair
 #define F first
@@ -23,9 +21,28 @@ const int INF = 1e9 + 10;
 
 int n;
 vector<int> vet;
+set<int> sub;
+set<set<int>> tes;
+
+void search(int i){
+    if(i == (int) vet.size()){
+        tes.insert(sub);
+        return;
+    }
+    search(i + 1);
+    sub.insert(vet[i]);
+    search(i + 1);
+    sub.erase(vet[i]);
+}
 
 int main(){ fast_io
     cin >> n;
 
-    
+    vet.resize(n);
+    for(int i = 0; i < n; ++i)
+        cin >> vet[i];
+
+    search(0);
+
+    cout << (int) tes.size() << endl;
 }

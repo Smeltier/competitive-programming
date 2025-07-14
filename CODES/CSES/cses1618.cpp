@@ -21,11 +21,12 @@ typedef unsigned int ui;
 const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
 
-int n;
-vector<int> vet;
+int solve(int n){
+    if(!n) return 0;
+    return n / 5 + solve(n / 5); 
+}
 
 int main(){ fast_io
-    cin >> n;
-
-    
+    int n; cin >> n;
+    cout << solve(n) << endl;
 }
