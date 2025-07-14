@@ -16,26 +16,30 @@ typedef unsigned long long ull;
 typedef long double ld;
 typedef unsigned int ui;
 
-const int maxn = 1e5+10;
-const int INF = 1e9 + 10;
-
-
-
 int main(){ fast_io
-    int n; cin >> n;
+    int n, m;
+    cin >> n >> m;
 
-    vector<int> vet;
-    for(int i = 1; i <= n; ++i)
-        vet.pb(i);
-
-    int idx = 1;
-    while((int) vet.size() > 1){
-        cout << vet[idx] << " ";
-        
-        idx += 2;
-        if(idx >= n) idx = 1;
+    multiset<int> tk;
+    for(int i = 0; i < n; ++i){
+        int p; cin >> p;
+        tk.insert(p);
     }
 
-    cout << vet[0] << endl;
+    int c; // customer
+    while(m--){
+        cin >> c;
 
+        auto it = tk.upper_bound(c);
+
+        if(it == tk.begin())
+            cout << -1 << endl;
+        else{
+            --it;
+            cout << *it << endl;
+            tk.erase(it);
+        }
+    }
+
+    return 0;
 }

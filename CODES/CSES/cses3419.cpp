@@ -16,19 +16,36 @@ typedef unsigned long long ull;
 typedef long double ld;
 typedef unsigned int ui;
 
+#define sz 100
+
 int main(){ fast_io
-    int n;
-    cin >> n;
+    int n; cin >> n;
 
-    int mt[100][100];
+    int mat[sz][sz];
+    memset(mat, 0, sizeof n);
 
-    for(int i = 0; i < n; ++i)
-        for(int j = 0; j < n; ++j)
-            mt[i][j] = (i + j) % n;
+    for(int i = 0; i < n; ++i){
+        for(int j = 0; j < n; ++j){
+            bool flag[sz * 2] = {false};
+
+            for(int k = 0; k < j; ++k)
+                flag[mat[i][k]] = true;
+            
+            for(int k = 0; k < i; ++k)
+                flag[mat[k][j]] = true;
+
+            int aux = 0;
+            while(flag[aux]) ++aux;
+
+            mat[i][j] = aux;
+        }
+    }
 
     for(int i = 0; i < n; ++i){
         for(int j = 0; j < n; ++j)
-            cout << mt[i][j] << " ";
+            cout << mat[i][j] << " ";
         cout << endl;
     }
+
+    return 0;
 }
