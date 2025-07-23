@@ -29,7 +29,6 @@ int main(){
     ll n;
     cin >> n;
     while(n--){
-
         ll m;
         cin >> m;
 
