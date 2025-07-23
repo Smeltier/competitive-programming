@@ -1,7 +1,12 @@
+//    Subarray Sums II - Cses 1661 (by Smeltier)
+//    https://cses.fi/problemset/task/1661/
+
 #include <bits/stdc++.h>
 using namespace std;
 
 #define pb push_back
+#define max(a,b) (a<b?b:a)
+#define abs(a) (a<0?(-a):a)
 #define present(c, a) (c.find(a) != c.end())
 #define mp make_pair
 #define F first
@@ -20,20 +25,21 @@ const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
 
 int main(){ fast_io
-    int n; cin >> n;
 
-    vector<pair<int, int>> cust;
-    for(int i = 0; i < n; i++){
-        int start, end; cin >> start >> end;
-        cust.pb({start, 1});
-        cust.pb({end, -1});
-    }
-    srt(cust);
+    ll n, x; cin >> n >> x;
 
-    int ans = 0, cnt = 0;
-    for(auto it : cust){
-        cnt += it.S;
-        ans = max(ans, cnt);
+    vector<ll> vet(n);
+    for(ll i = 0; i < n; ++i)
+        cin >> vet[i];
+
+    map<ll, ll> prefix;
+    prefix[0] = 1;
+
+    ll ans = 0, pref = 0;
+    for(ll i = 0; i < n; ++i){
+        pref += vet[i];
+        ans += (prefix[pref - x]);
+        prefix[pref] += 1;
     }
 
     cout << ans << endl;

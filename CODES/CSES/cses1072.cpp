@@ -1,7 +1,12 @@
+//    Two Knights - Cses 1072 (by Smeltier)
+//    https://cses.fi/problemset/task/1072/
+
 #include <bits/stdc++.h>
 using namespace std;
 
 #define pb push_back
+#define max(a,b) (a<b?b:a)
+#define abs(a) (a<0?(-a):a)
 #define present(c, a) (c.find(a) != c.end())
 #define mp make_pair
 #define F first
@@ -19,22 +24,15 @@ typedef unsigned int ui;
 const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
 
+ll solve(ll var){
+    return (powl(var,2) * (powl(var,2) - 1)) / 2 - 4 * (var - 1) * (var - 2);  
+}
+
 int main(){ fast_io
-    int n; cin >> n;
+    ll n; cin >> n;
 
-    vector<pair<int, int>> cust;
-    for(int i = 0; i < n; i++){
-        int start, end; cin >> start >> end;
-        cust.pb({start, 1});
-        cust.pb({end, -1});
-    }
-    srt(cust);
+    for(ll i = 1; i <= n; i++)
+        cout << solve(i) << endl;
 
-    int ans = 0, cnt = 0;
-    for(auto it : cust){
-        cnt += it.S;
-        ans = max(ans, cnt);
-    }
-
-    cout << ans << endl;
+    return 0;
 }

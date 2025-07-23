@@ -1,3 +1,6 @@
+//    Bit Strings - Cses 1617 (by Smeltier)
+//    https://cses.fi/problemset/task/1617/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,8 +17,6 @@ using namespace std;
 
 typedef long long ll;
 typedef long double ld;
-
-
 
 int main(){ fast_io;
 

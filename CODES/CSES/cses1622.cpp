@@ -1,3 +1,6 @@
+//    Creating Strings - Cses 1622 (by Smeltier)
+//    https://cses.fi/problemset/task/1622/
+
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -2,6 +2,8 @@
 using namespace std;
 
 #define pb push_back
+#define max(a,b) (a<b?b:a)
+#define abs(a) (a<0?(-a):a)
 #define present(c, a) (c.find(a) != c.end())
 #define mp make_pair
 #define F first
@@ -19,22 +21,12 @@ typedef unsigned int ui;
 const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
 
+int solve(int n){
+    if(!n) return 0;
+    return n / 5 + solve(n / 5); 
+}
+
 int main(){ fast_io
     int n; cin >> n;
-
-    vector<pair<int, int>> cust;
-    for(int i = 0; i < n; i++){
-        int start, end; cin >> start >> end;
-        cust.pb({start, 1});
-        cust.pb({end, -1});
-    }
-    srt(cust);
-
-    int ans = 0, cnt = 0;
-    for(auto it : cust){
-        cnt += it.S;
-        ans = max(ans, cnt);
-    }
-
-    cout << ans << endl;
+    cout << solve(n) << endl;
 }

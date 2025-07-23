@@ -1,3 +1,6 @@
+//    Gray Code - Cses 2205 (by Smeltier)
+//    https://cses.fi/problemset/task/2205/
+
 #include <bits/stdc++.h>
 using namespace std;
 

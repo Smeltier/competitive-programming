@@ -1,3 +1,6 @@
+//    Ferris Wheel - Cses 1090 (by Smeltier)
+//    https://cses.fi/problemset/task/1090/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,8 +17,6 @@ using namespace std;
 
 typedef long long ll;
 typedef long double ld;
-
-
 
 int main(){ fast_io;
 
