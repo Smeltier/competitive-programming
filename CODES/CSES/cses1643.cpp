@@ -19,41 +19,23 @@ typedef unsigned int ui;
 const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
 
-int n, m;
-vector<int> vet;
 
-int solve(){
-    srt(vet);
-    int aux; cin >> aux;
-
-    auto idx = lower_bound(vet.begin(), vet.end(), aux);
-
-    cout << "Valor : " << *idx << endl;
-
-    *idx = INT_MAX;
-
-    // int idx = (int) vet.size() - 1;
-    // while(vet[idx] > aux) 
-    //     idx--;
-
-    // if(idx < 0) return -1;
-
-    // int ans = vet[idx];
-    // vet.erase(vet.begin() + idx);
-
-
-    // return ans;
-}
 
 int main(){ fast_io
-    cin >> n >> m;
+    int n; cin >> n;
 
-    vet.resize(n);
+    vector<int> vet(n);
     for(int i = 0; i < n; ++i)
         cin >> vet[i];
+    srt(vet);
 
-    while(m--){
-        solve();
-        // cout << solve() << endl;
+    int sum = 0, ans = INT_MIN;
+    for(int i = 0; i < n; ++i){
+        sum += vet[i];
+        ans = max(ans, sum);
     }
+
+    cout << ans << endl;
+
+    return 0;
 }

@@ -16,25 +16,30 @@ typedef unsigned long long ull;
 typedef long double ld;
 typedef unsigned int ui;
 
-const int maxn = 1e5+10;
-const int INF = 1e9 + 10;
-
 int main(){ fast_io
-    int n; cin >> n;
+    int n, m;
+    cin >> n >> m;
 
-    vector<pair<int, int>> cust;
-    for(int i = 0; i < n; i++){
-        int start, end; cin >> start >> end;
-        cust.pb({start, 1});
-        cust.pb({end, -1});
-    }
-    srt(cust);
-
-    int ans = 0, cnt = 0;
-    for(auto it : cust){
-        cnt += it.S;
-        ans = max(ans, cnt);
+    multiset<int> tk;
+    for(int i = 0; i < n; ++i){
+        int p; cin >> p;
+        tk.insert(p);
     }
 
-    cout << ans << endl;
+    int c; // customer
+    while(m--){
+        cin >> c;
+
+        auto it = tk.upper_bound(c);
+
+        if(it == tk.begin())
+            cout << -1 << endl;
+        else{
+            --it;
+            cout << *it << endl;
+            tk.erase(it);
+        }
+    }
+
+    return 0;
 }

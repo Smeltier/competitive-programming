@@ -16,25 +16,24 @@ typedef unsigned long long ull;
 typedef long double ld;
 typedef unsigned int ui;
 
-const int maxn = 1e5+10;
-const int INF = 1e9 + 10;
-
 int main(){ fast_io
+
     int n; cin >> n;
 
-    vector<pair<int, int>> cust;
-    for(int i = 0; i < n; i++){
-        int start, end; cin >> start >> end;
-        cust.pb({start, 1});
-        cust.pb({end, -1});
-    }
-    srt(cust);
-
-    int ans = 0, cnt = 0;
-    for(auto it : cust){
-        cnt += it.S;
-        ans = max(ans, cnt);
+    vector<int> ans(n, 0), vet(n);
+    for(int i = 0; i < n; ++i){
+        cin >> vet[i];
+        int aux = 0;
+        for(int j = i - 1; j >= 0; --j)
+            if(vet[j] < vet[i]){
+                aux = j + 1;
+                break;
+            }
+        ans[i] = aux;
     }
 
-    cout << ans << endl;
+    for(auto &a : ans)
+        cout << a << " ";
+    cout << endl;
+
 }

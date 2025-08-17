@@ -2,6 +2,8 @@
 using namespace std;
 
 #define pb push_back
+#define max(a,b) (a<b?b:a)
+#define abs(a) (a<0?(-a):a)
 #define present(c, a) (c.find(a) != c.end())
 #define mp make_pair
 #define F first
@@ -19,53 +21,45 @@ typedef unsigned int ui;
 const int maxn = 1e5+10;
 const int INF = 1e9 + 10;
 
-int sz;
-string str;
-map<char, int> pam;
 
-bool cmp(int aux){
-    for(auto p : pam)
-        if(p.S > (aux + 1) / 2) return false;
-    return true;
-}
-
-string solve(){
-    for(char s : str) pam[s]++;
-
-    if(!cmp(sz)) return "-1";
-
-    string ans = "";
-    char prev = 0;
-
-    for(int i = 0; i < sz; ++i){
-        bool flag = false;
-
-        for(auto ite = pam.begin(); ite != pam.end(); ++ite){
-            char c = ite->F;
-            int &f = ite->S;
-
-            if(!f || c == prev) continue;
-
-            f--;
-            if(cmp(sz - i - 1)){
-                ans += c;
-                prev = c;
-                flag = true;
-
-                if(!f) pam.erase(c);
-                break;
-            }
-            else f++;
-        }
-
-        if(!flag) return "-1";
-    }
-
-    return ans;
-}
 
 int main(){ fast_io
-    cin >> str;
-    sz = (int) str.size();
-    cout << solve() << endl;
+
+    string str; cin >> str;
+
+    map<char, int> pam;
+    for(int i = 0; i < (int) str.length(); i++)
+        pam[str[i]]++;
+
+    vector<pair<char, int>> pi;
+    for(auto [key, value] : pam){
+        pi.pb({key, value});
+    }
+
+    string ans = "";
+
+    int fast = 1, slow = 0;
+    while(fast < (int) pi.size() and slow < (int) pi.size()){
+
+        cout << "fast = " << fast << " : " << "slow = " << slow << endl;
+
+        if(slow < (int) pi.size()){
+            ans += pi[slow].F;
+            pi[slow].S--;
+        }
+
+        if(fast < (int) pi.size()){
+            ans += str[fast];
+            pi[fast].S--;
+        }
+
+        while(pi[slow].S <= 0)
+            slow++;
+        while(pi[fast].S <= 0)
+            fast++;
+
+    }
+
+    cout << ans << endl;
+
 }

@@ -16,25 +16,27 @@ typedef unsigned long long ull;
 typedef long double ld;
 typedef unsigned int ui;
 
-const int maxn = 1e5+10;
-const int INF = 1e9 + 10;
-
 int main(){ fast_io
+
+    map<ll, int> freq;
+
     int n; cin >> n;
 
-    vector<pair<int, int>> cust;
-    for(int i = 0; i < n; i++){
-        int start, end; cin >> start >> end;
-        cust.pb({start, 1});
-        cust.pb({end, -1});
-    }
-    srt(cust);
+    vector<ll> vet(n);
+    for(int i = 0; i < n; ++i)
+        cin >> vet[i];
 
-    int ans = 0, cnt = 0;
-    for(auto it : cust){
-        cnt += it.S;
-        ans = max(ans, cnt);
+    ll ans = 1;
+    for(int l = 0, r = 0; l < n; l++){
+        while(r < n and !freq[vet[r]]){
+            freq[vet[r]]++;
+            ans++;
+        }
+        freq[vet[l]]--;
+        ans++;
     }
 
     cout << ans << endl;
+
+    return 0;
 }
