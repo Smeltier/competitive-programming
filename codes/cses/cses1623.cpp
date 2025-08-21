@@ -35,16 +35,16 @@ void search(ll valor, ll sum){
     search(valor + 1, sum + vet[valor]);
     search(valor + 1, sum);
 }
-
+		
 int main(){ fast_io 
     cin >> n;
-
+	
     vet.resize(n);
     for(int i = 0; i < n; i++){
         cin >> vet[i];
         tt += vet[i];
-    }  
-
+    }
+    
     search(0, 0);
 
     cout << ans << endl;

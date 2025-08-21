@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Retangulo
-{
+struct Retangulo{
     int x1, y1, x2, y2;
 };
 
