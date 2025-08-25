@@ -38,5 +38,4 @@ int main(){ fast_io
     }
     cout << endl;
 
-    return 0;
 }
