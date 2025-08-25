@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define fast_io ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl "\n"
+
+typedef long long ll;
+const int MOD = 1e9 + 7;
+
+int main(){ 
+    fast_io
+    int n; 
+    cin >> n;
+
+    vector<vector<char>> mat(n + 1, vector<char>(n + 1));
+    vector<vector<int>> sum(n + 1, vector<int>(n + 1, 0));
+
+    for(int i = 1; i <= n; ++i)
+        for(int j = 1; j <= n; ++j)
+            cin >> mat[i][j];
+        
+    if(mat[1][1] == '.')
+        sum[1][1] = 1;
+        
+    for(int i = 1; i <= n; ++i){
+        for(int j = 1; j <= n; ++j){
+            if(mat[i][j] == '*') continue;
+            if(i > 1) sum[i][j] = (sum[i][j] + sum[i - 1][j]) % MOD;
+            if(j > 1) sum[i][j] = (sum[i][j] + sum[i][j - 1]) % MOD;
+        }
+    }
+
+    cout << sum[n][n] << endl;
+
+    return 0;
+}
