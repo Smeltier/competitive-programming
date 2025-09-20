@@ -3,62 +3,51 @@
 
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define pb push_back
-#define mp make_pair
-#define F first
-#define S second
-#define endl "\n"
- 
-typedef long long ll;
- 
-int n, m;
-const int maxs = 1100;
-vector<vector<char>> square (maxs, vector<char>(maxs));
-vector<vector<bool>> test (maxs, vector<bool> (maxs));
 
-// Find out if there are any neighbors around this house
-int neighborX[4] = {0, 0, 1, -1};
-int neighborY[4] = {1, -1, 0, 0};
- 
-void dfs(int x, int y){
-    test[x][y] = true;
- 
-    for (int i = 0; i < 4; i++){
-        int auxX = x + neighborX[i];
-        int auxY = y + neighborY[i];
-        if (auxX >= 0 && auxX < n && auxY >= 0 && auxY < m && !test[auxX][auxY] && square[auxX][auxY] == '.')
-            dfs(auxX,auxY);
+#define fast_io ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+typedef long long ll;
+
+int n, m;
+vector <vector <char>> mat;
+vector <vector <bool>> vis;
+
+void dfs(int i, int j){
+    vis[i][j] = true;
+
+    int dx[] = {0, 0, 1, -1},
+        dy[] = {1, -1, 0, 0};
+
+    for(int d = 0; d < 4; ++d){
+        int x = i + dx[d],
+            y = j + dy[d];
+
+        if(x >= 0 and x < n and y >= 0 and y < m and mat[x][y] == '.' and not vis[x][y])
+            dfs(x, y);
     }
- 
 }
- 
-int main(){
- 
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
- 
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
- 
+
+int main(){ fast_io
     cin >> n >> m;
- 
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++){
-            cin >> square[i][j];
-            test[i][j] = false;
-        }
+
+    mat.assign(n, vector<char>(m, '#'));
+    vis.assign(n, vector<bool>(m, false));
     
-    int cnt = 0;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++){
-            if(square[i][j] == '.' && !test[i][j]){
-                dfs(i,j);
-                cnt++;
+    for(int i = 0; i < n; ++i)
+        for(int j = 0; j < m; ++j)
+            cin >> mat[i][j];
+        
+    int rooms = 0;
+    for(int i = 0; i < n; ++i){
+        for(int j = 0; j < m; ++j){
+            if(mat[i][j] == '.' and not vis[i][j]){
+                dfs(i, j);
+                rooms++;
             }
         }
- 
-    cout << cnt << endl;
- 
+    }
+        
+    cout << rooms << endl;
+
+    return 0;
 }
