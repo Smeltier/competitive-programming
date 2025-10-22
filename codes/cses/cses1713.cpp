@@ -1,37 +1,31 @@
-//    Counting Divisors - Cses 1713 (by Smeltier)
-//    https://cses.fi/problemset/task/1713
-
 #include <bits/stdc++.h>
 using namespace std;
 
-#define pb push_back
-#define mp make_pair
-#define F first
-#define S second
-#define all(x) x.begin(),x.end()
-#define srt(x) sort(all(x))
+#define fast_io ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 #define endl "\n"
 
 typedef long long ll;
 
-int main(){
+const ll maxn = 1e6;
+vector<ll> divisors(maxn, 0);
 
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+void sieve() {
+    for(int i = 1; i <= maxn; ++i)
+        for(int j = i; j <= maxn; j += i)
+            divisors[j]++;
+}
 
-    const ll maxs = 1000000;
-    vector<ll> div(maxs + 1,0);
-    for (ll i = 1; i <= maxs; i++)
-        for (ll j = i; j <= maxs; j += i)
-            div[j]++;
-            
-    ll n;
-    cin >> n;
-    while(n--){
-        ll m;
-        cin >> m;
+int main(){ fast_io
+    int tc;
+    cin >> tc;
 
-        cout << div[m] << endl;
+    sieve();
 
+    ll num;
+    while(tc--) {
+        cin >> num;
+        cout << divisors[num] << endl;
     }
 
+    return 0;
 }
